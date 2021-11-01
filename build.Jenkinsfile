@@ -4,10 +4,17 @@ pipeline {
   agent any
 
   stages {
+    stage('Capture env') {
+      steps {
+        sh '''
+          env
+        '''
+      }
+    }
     stage('Build') {
       steps {
         sh '''
-          echo "Hello World"
+          ./gradlew build
         '''
       }
     }
