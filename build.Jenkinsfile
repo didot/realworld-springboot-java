@@ -17,6 +17,12 @@ pipeline {
           ./gradlew build
         '''
       }
+
+      post {
+        always {
+          jacoco(execPattern: 'build/jacoco/test.exec')
+        }
+      }
     }
   }
 }
