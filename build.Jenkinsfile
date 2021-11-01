@@ -21,7 +21,7 @@ pipeline {
       post {
         always {
           jacoco(execPattern: 'build/jacoco/test.exec')
-          recordIssues(tools: [junitParser()])
+          recordIssues(tools: [junitParser(pattern: 'build/test-results/test/*.xml')])
         }
       }
     }
