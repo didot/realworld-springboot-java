@@ -21,6 +21,7 @@ pipeline {
       post {
         always {
           jacoco(execPattern: 'build/jacoco/test.exec')
+          recordIssues(tools: [junitParser()])
         }
       }
     }
